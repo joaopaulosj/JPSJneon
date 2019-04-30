@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">JPSJneon</string>
+	<string name="app_name">JPSJneon</string>
+	
+	<!--HISTORY-->
+	<string name="history_title">Histórico de Envios</string>
+
 </resources>
