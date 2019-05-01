@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
-        android:padding="@dimen/margin_small"
-        android:layout_height="match_parent">
-    
-    <TextView
-            android:id="@+id/itemChartAmountTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_small"
-            android:textColor="@color/colorAccent"
-            app:layout_constraintBottom_toTopOf="@id/itemChartGdl"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="1.234,00"/>
-    
-    <ImageView
-            android:layout_width="@dimen/chart_dot_size"
-            android:layout_height="@dimen/chart_dot_size"
-            android:background="@drawable/bg_circle_blue"
-            app:layout_constraintBottom_toBottomOf="@id/itemChartGdl"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/itemChartGdl"/>
-    
-    <include
-            android:id="@+id/itemChartAvatarIv"
-            layout="@layout/partial_avatar"
-            android:layout_width="@dimen/chart_avatar_size"
-            android:layout_height="@dimen/chart_avatar_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-    
-    <View
-            android:layout_width="@dimen/chart_bar_width"
-            android:layout_height="0dp"
-            android:background="@drawable/bg_gradient_chart"
-            app:layout_constraintBottom_toTopOf="@id/itemChartAvatarIv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/itemChartGdl"/>
-    
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/itemChartGdl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.53"/>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="match_parent">
+
+	<TextView
+		android:id="@+id/itemChartAmountTv"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="@dimen/margin_small"
+		android:textColor="@color/colorAccent"
+		android:textSize="@dimen/text_default"
+		app:layout_constraintBottom_toTopOf="@id/itemChartGdl"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		tools:text="1.234,00" />
+
+	<ImageView
+		android:layout_width="@dimen/chart_dot_size"
+		android:layout_height="@dimen/chart_dot_size"
+		android:background="@drawable/bg_circle_blue"
+		app:layout_constraintBottom_toBottomOf="@id/itemChartGdl"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="@id/itemChartGdl" />
+
+	<include
+		android:id="@+id/itemChartAvatarIv"
+		layout="@layout/partial_avatar"
+		android:layout_width="@dimen/chart_avatar_size"
+		android:layout_height="@dimen/chart_avatar_size"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+	<View
+		android:layout_width="@dimen/chart_bar_width"
+		android:layout_height="0dp"
+		android:background="@drawable/bg_gradient_chart"
+		app:layout_constraintBottom_toTopOf="@id/itemChartAvatarIv"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="@id/itemChartGdl" />
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/itemChartGdl"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_percent="0.53" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

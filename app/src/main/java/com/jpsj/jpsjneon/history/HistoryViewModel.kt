@@ -6,22 +6,25 @@ import androidx.lifecycle.ViewModelProvider
 import com.jpsj.jpsjneon.data.models.ChartModel
 import com.jpsj.jpsjneon.data.models.TransferModel
 import com.jpsj.jpsjneon.data.repositories.AppRepository
-import com.jpsj.jpsjneon.extensions.singleSubscribe
-import com.jpsj.jpsjneon.helpers.SingleLiveEvent
+import com.jpsj.jpsjneon.utils.SingleLiveEvent
+import com.jpsj.jpsjneon.utils.extensions.singleSubscribe
 
 class HistoryViewModel(private val repository: AppRepository) : ViewModel() {
 	
 	val transfersList = MutableLiveData<List<TransferModel>>()
 	val chartList = MutableLiveData<Pair<List<ChartModel>, Double>>()
 	val errorEvents = SingleLiveEvent<String?>()
+	val isLoading = SingleLiveEvent<Boolean>()
 	
 	fun loadTransfers() {
+		isLoading.value = true
 		repository.getTransfers()
-			.singleSubscribe(onSuccess = {
-				loadChart(it)
-			}, onError = {
-				errorEvents.value = it.message
-			})
+				.singleSubscribe(onSuccess = {
+					loadChart(it)
+				}, onError = {
+					errorEvents.value = it.message
+					isLoading.value = false
+				})
 	}
 	
 	private fun loadChart(transfers: List<TransferModel>) {
@@ -29,14 +32,16 @@ class HistoryViewModel(private val repository: AppRepository) : ViewModel() {
 		val groups = transfers.groupBy { it.clientId }
 		val chartItems = groups.map {
 			ChartModel(
-				amount = it.value.sumByDouble { it.price },
-				clientId = it.key, clientName = it.value.first().clientName,
-				clientPic = it.value.first().clientPic
+					amount = it.value.sumByDouble { it.amount },
+					clientId = it.key, clientName = it.value.first().clientName,
+					clientPic = it.value.first().clientPic
 			)
 		}
 		
 		val greatestAmount = chartItems.maxBy { it.amount }
-		chartList.value = Pair(chartItems.sortedByDescending { it.amount }, greatestAmount?.amount ?: 1.0)
+		chartList.value = Pair(chartItems.sortedByDescending { it.amount },
+				greatestAmount?.amount ?: 1.0)
+		isLoading.value = false
 	}
 	
 }

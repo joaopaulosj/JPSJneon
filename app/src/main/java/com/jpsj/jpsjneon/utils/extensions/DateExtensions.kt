@@ -1,4 +1,4 @@
-package com.jpsj.jpsjneon.extensions
+package com.jpsj.jpsjneon.utils.extensions
 
 import java.text.SimpleDateFormat
 import java.util.*

@@ -1,4 +1,4 @@
-package com.jpsj.jpsjneon.extensions
+package com.jpsj.jpsjneon.utils.extensions
 
 import io.reactivex.Scheduler
 import io.reactivex.Single

@@ -6,7 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jpsj.jpsjneon.R
 import com.jpsj.jpsjneon.data.models.ChartModel
-import com.jpsj.jpsjneon.helpers.loadCircleImage
+import com.jpsj.jpsjneon.utils.extensions.animateFromZero
+import com.jpsj.jpsjneon.utils.extensions.formatToDecimal
+import com.jpsj.jpsjneon.utils.extensions.loadCircleImage
+import com.jpsj.jpsjneon.utils.extensions.setVisible
 import kotlinx.android.synthetic.main.item_chart.view.*
 import kotlinx.android.synthetic.main.partial_avatar.view.*
 
@@ -14,10 +17,12 @@ class HistoryChartAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 	
 	private var items: List<ChartModel> = emptyList()
 	private var greatestAmount: Double = 1.0
+	private val animatedItems = mutableListOf<Int>()
 	
 	fun setItems(items: List<ChartModel>, greatestAmount: Double) {
 		this.items = items
 		this.greatestAmount = greatestAmount
+		animatedItems.clear()
 		notifyDataSetChanged()
 	}
 	
@@ -37,15 +42,21 @@ class HistoryChartAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 	inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 		fun bind(item: ChartModel) {
 			itemView.apply {
-				item.clientPic?.let {
-					itemChartAvatarIv.avatarIv.loadCircleImage(it)
-				} ?: run {
-					itemChartAvatarIv.avatarIv.loadCircleImage(null)
-				}
-				itemChartAmountTv.text = item.amount.toInt().toString()
+				itemChartAmountTv.text = item.amount.formatToDecimal()
+				avatarIv.setVisible(item.clientPic != null, true)
+				avatarIv.loadCircleImage(item.clientPic)
+				avatarTv.setVisible(item.clientPic == null)
+				avatarTv.text = item.initials
 				
-				val percent = (0.1 + (item.amount / greatestAmount.toFloat() * 0.8))
-				itemChartGdl.setGuidelinePercent(1 - percent.toFloat())
+				if (animatedItems.contains(adapterPosition)) {
+					itemChartGdl.setGuidelinePercent(1 - item.chartPercent(greatestAmount)) //this 1 is because of the constraint layout orientation
+				} else {
+					animatedItems.add(adapterPosition)
+					//Animate the chart bar from zero to the amount percent
+					item.chartPercent(greatestAmount).animateFromZero {
+						itemChartGdl.setGuidelinePercent(1 - it) //this 1 is because of the constraint layout orientation
+					}
+				}
 			}
 		}
 	}

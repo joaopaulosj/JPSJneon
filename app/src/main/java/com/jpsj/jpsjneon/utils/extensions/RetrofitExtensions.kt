@@ -1,4 +1,4 @@
-package com.jpsj.jpsjneon.extensions
+package com.jpsj.jpsjneon.utils.extensions
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

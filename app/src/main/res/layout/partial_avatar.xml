@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="50dp"
-             android:layout_height="50dp">
-    
-    <ImageView
-            android:id="@+id/avatarIv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_circle_accent"
-            android:padding="1dp"
-            tools:srcCompat="@drawable/ic_placeholder_user"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="100dp"
+	android:layout_height="100dp"
+	android:background="@drawable/bg_circle_accent">
 
-</FrameLayout>
+	<ImageView
+		android:id="@+id/avatarIv"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_centerInParent="true"
+		android:layout_margin="@dimen/avatar_stroke_width"
+		tools:srcCompat="@drawable/ic_placeholder_user" />
+
+	<TextView
+		android:id="@+id/avatarTv"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_centerInParent="true"
+		android:layout_margin="@dimen/avatar_stroke_width"
+		android:background="@drawable/bg_circle_blue"
+		android:gravity="center"
+		android:textColor="@color/colorAccent"
+		android:textStyle="bold"
+		android:padding="@dimen/margin_small"
+		android:visibility="visible"
+		app:autoSizeTextType="uniform"
+		app:backgroundTint="@color/colorLightBlueChart"
+		tools:text="JP" />
+
+</RelativeLayout>

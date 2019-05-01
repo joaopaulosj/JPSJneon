@@ -1,4 +1,4 @@
-package com.jpsj.jpsjneon.helpers
+package com.jpsj.jpsjneon.utils
 
 import android.util.Log
 import androidx.annotation.MainThread

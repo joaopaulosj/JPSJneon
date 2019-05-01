@@ -1,43 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".history.HistoryActivity">
-    
-    <include layout="@layout/partial_toolbar"/>
-    
-    <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@drawable/bg_gradient"
-            android:layout_weight="1">
-        
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-            
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/historyChartRv"
-                    android:layout_width="match_parent"
-                    android:overScrollMode="never"
-                    android:layout_height="250dp"
-                    tools:orientation="horizontal"
-                    tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_chart"/>
-            
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/historyTransfersRv"
-                    tools:listitem="@layout/item_chart"
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-        
-        </LinearLayout>
-    
-    </androidx.core.widget.NestedScrollView>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/coordinator"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".history.HistoryActivity">
 
-</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<include layout="@layout/partial_toolbar" />
+
+		<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+			android:id="@+id/historySwipeRefresh"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<androidx.core.widget.NestedScrollView
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:background="@drawable/bg_gradient">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+
+					<androidx.constraintlayout.widget.ConstraintLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<View
+							android:id="@+id/chartBg"
+							android:layout_width="match_parent"
+							android:layout_height="0dp"
+							android:layout_marginBottom="@dimen/chart_avatar_size"
+							android:background="@drawable/bg_stripes"
+							app:layout_constraintBottom_toBottomOf="@id/historyChartRv"
+							app:layout_constraintEnd_toEndOf="parent"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintTop_toTopOf="parent" />
+
+						<androidx.recyclerview.widget.RecyclerView
+							android:id="@+id/historyChartRv"
+							android:layout_width="match_parent"
+							android:layout_height="200dp"
+							android:layout_marginTop="@dimen/margin_small"
+							android:clipToPadding="false"
+							android:overScrollMode="never"
+							android:paddingStart="@dimen/margin_base"
+							android:paddingEnd="@dimen/margin_base"
+							app:layout_constraintBottom_toBottomOf="parent"
+							app:layout_constraintEnd_toEndOf="parent"
+							app:layout_constraintStart_toStartOf="parent"
+							app:layout_constraintTop_toTopOf="@id/chartBg"
+							tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+							tools:listitem="@layout/item_chart"
+							tools:orientation="horizontal" />
+
+					</androidx.constraintlayout.widget.ConstraintLayout>
+
+					<androidx.recyclerview.widget.RecyclerView
+						android:id="@+id/historyTransfersRv"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/margin_large"
+						tools:listitem="@layout/item_transfer" />
+
+				</LinearLayout>
+
+			</androidx.core.widget.NestedScrollView>
+		</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+	</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
