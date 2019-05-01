@@ -19,7 +19,7 @@ abstract class BaseActivity : AppCompatActivity() {
 		}
 	}
 	
-	protected fun displayError(message: String?) {
+	protected fun displayErrorToast(message: String?) {
 		toast(message ?: "Erro desconhecido")
 	}
 	
