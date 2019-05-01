@@ -21,6 +21,6 @@ fun Double.formatToCurrency(locale: Locale = Locale("pt", "BR")): String {
 
 fun Double.formatToDecimal(): String {
 	val df = DecimalFormat()
-	df.setMinimumFractionDigits(2)
+	df.minimumFractionDigits = 2
 	return df.format(this)
 }

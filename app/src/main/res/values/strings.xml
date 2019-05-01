@@ -1,9 +1,18 @@
 <resources>
 	<string name="app_name">JPSJneon</string>
-	
-	<!--HISTORY-->
-	<string name="history_title">Histórico de Envios</string>
 
+	<!--HOME-->
+	<string name="home_user_picture">http://joaopaulosj.com/assets/images/foto.jpg</string>
+	<string name="home_user_name">João Paulo Januário</string>
+	<string name="home_user_email">jpsjanuario@gmail.com</string>
+
+	<!--SEND MONEY-->
+	<string name="send_money_title">ENVIAR DINHEIRO</string>
+
+	<!--HISTORY-->
+	<string name="history_title">HISTÓRICO DE ENVIOS</string>
+
+	<!--GENERAL-->
 	<string name="placeholder_error">Erro desconhecido.</string>
 	<string name="try_again">Tente Novamente</string>
 </resources>
