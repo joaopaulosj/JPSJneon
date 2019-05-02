@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center"
+	android:orientation="vertical">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="@dimen/margin_large"
+		android:background="@drawable/bg_rounded_dialog">
+
+		<include
+			android:id="@+id/dialogSendMoneyIv"
+			layout="@layout/partial_avatar"
+			android:layout_width="@dimen/dialog_avatar_size"
+			android:layout_height="@dimen/dialog_avatar_size"
+			android:layout_marginTop="@dimen/margin_base"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/dialogSendMoneyNameTv"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/margin_base"
+			android:layout_marginTop="@dimen/margin_base"
+			android:gravity="center"
+			android:textColor="@color/colorWhite"
+			android:textSize="@dimen/text_title"
+			android:textStyle="bold"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/dialogSendMoneyIv"
+			tools:text="@tools:sample/full_names" />
+
+		<TextView
+			android:id="@+id/dialogSendMoneyPhoneTv"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:textColor="@color/colorWhite"
+			android:textSize="@dimen/text_title"
+			app:layout_constraintEnd_toEndOf="@id/dialogSendMoneyNameTv"
+			app:layout_constraintStart_toStartOf="@id/dialogSendMoneyNameTv"
+			app:layout_constraintTop_toBottomOf="@id/dialogSendMoneyNameTv"
+			tools:text="@tools:sample/us_phones" />
+
+		<TextView
+			android:id="@+id/dialogSendMoneySend"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/margin_base"
+			android:gravity="center"
+			android:text="@string/dialog_send_money_value"
+			android:textColor="@color/colorWhite"
+			android:textSize="@dimen/text_small"
+			app:layout_constraintEnd_toEndOf="@id/dialogSendMoneyPhoneTv"
+			app:layout_constraintStart_toStartOf="@id/dialogSendMoneyPhoneTv"
+			app:layout_constraintTop_toBottomOf="@id/dialogSendMoneyPhoneTv" />
+
+		<EditText
+			android:id="@+id/dialogSendMoneyEt"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/margin_base"
+			android:layout_marginTop="@dimen/margin_small"
+			android:layout_marginEnd="@dimen/margin_base"
+			android:background="@drawable/bg_rounded_white"
+			android:gravity="center"
+			android:inputType="number"
+			android:padding="@dimen/margin_small"
+			android:textColor="@color/colorAccent"
+			android:textSize="28sp"
+			android:textStyle="bold"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/dialogSendMoneySend"
+			tools:text="R$ 34,00" />
+
+		<com.jpsj.jpsjneon.utils.LoadingButton
+			android:id="@+id/dialogSendMoneyBtn"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="@dimen/margin_base"
+			app:btnText="@string/dialog_send_money_send"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/dialogSendMoneyEt" />
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

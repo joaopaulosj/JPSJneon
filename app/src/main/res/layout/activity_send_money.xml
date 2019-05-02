@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:id="@+id/coordinator"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".sendmoney.SendMoneyActivity">
+
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+		<include layout="@layout/partial_toolbar"/>
+
+		<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+				android:id="@+id/sendMoneySwipeRefresh"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+			<androidx.recyclerview.widget.RecyclerView
+					android:paddingTop="@dimen/margin_base"
+					android:clipToPadding="false"
+					android:background="@drawable/bg_gradient"
+					tools:listitem="@layout/item_transfer"
+					android:id="@+id/sendMoneyRv"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"/>
+		</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+	</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

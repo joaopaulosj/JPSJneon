@@ -1,18 +1,24 @@
 <resources>
-	<string name="app_name">JPSJneon</string>
+    <string name="app_name">JPSJneon</string>
 
-	<!--HOME-->
-	<string name="home_user_picture">http://joaopaulosj.com/assets/images/foto.jpg</string>
-	<string name="home_user_name">João Paulo Januário</string>
-	<string name="home_user_email">jpsjanuario@gmail.com</string>
+    <!--HOME-->
+    <string name="home_user_picture">http://joaopaulosj.com/assets/images/foto.jpg</string>
+    <string name="home_user_name">João Paulo Januário</string>
+    <string name="home_user_email">jpsjanuario@gmail.com</string>
 
-	<!--SEND MONEY-->
-	<string name="send_money_title">ENVIAR DINHEIRO</string>
+    <!--SEND MONEY-->
+    <string name="send_money_title">ENVIAR DINHEIRO</string>
+    <string name="send_money_succeeded">O dinheiro foi enviado!</string>
+    <string name="dialog_send_money_send">Enviar</string>
+    <string name="dialog_send_money_value">Valor a enviar:</string>
+    <string name="dialog_send_money_empty_value">Insira algum valor para continuar</string>
 
-	<!--HISTORY-->
-	<string name="history_title">HISTÓRICO DE ENVIOS</string>
 
-	<!--GENERAL-->
-	<string name="placeholder_error">Erro desconhecido.</string>
-	<string name="try_again">Tente Novamente</string>
+    <!--HISTORY-->
+    <string name="history_title">HISTÓRICO DE ENVIOS</string>
+
+    <!--GENERAL-->
+    <string name="placeholder_error">Erro desconhecido.</string>
+    <string name="try_again">Tente Novamente</string>
+
 </resources>

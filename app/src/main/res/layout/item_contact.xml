@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="?selectableItemBackground"
+	android:orientation="vertical">
+
+	<View
+		android:id="@+id/itemContactDivider"
+		style="@style/AccentDivider"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_marginStart="@dimen/margin_base"
+		android:layout_marginEnd="@dimen/margin_base"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<include
+		android:id="@+id/itemContactPicIv"
+		layout="@layout/partial_avatar"
+		android:layout_width="@dimen/transfer_avatar_size"
+		android:layout_height="@dimen/transfer_avatar_size"
+		android:layout_marginTop="@dimen/margin_base"
+		android:layout_marginBottom="@dimen/margin_base"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="@+id/itemContactDivider"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<TextView
+		android:id="@+id/itemContactNameTv"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/margin_base"
+		android:layout_marginTop="@dimen/margin_base"
+		android:textColor="@color/colorAccent"
+		android:textSize="@dimen/text_title"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toTopOf="@id/guideline"
+		app:layout_constraintEnd_toEndOf="@+id/itemContactDivider"
+		app:layout_constraintStart_toEndOf="@id/itemContactPicIv"
+		tools:text="@tools:sample/full_names" />
+
+	<TextView
+		android:id="@+id/itemContactPhoneTv"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:alpha="0.9"
+		android:textColor="@color/colorAccent"
+		android:textSize="@dimen/text_title"
+		app:layout_constraintEnd_toEndOf="@id/itemContactNameTv"
+		app:layout_constraintStart_toStartOf="@id/itemContactNameTv"
+		app:layout_constraintTop_toBottomOf="@id/guideline"
+		tools:text="@tools:sample/us_phones" />
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_percent="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

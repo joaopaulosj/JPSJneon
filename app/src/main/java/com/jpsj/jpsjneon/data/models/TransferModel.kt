@@ -24,7 +24,7 @@ class TransferModel(
 	
 }
 
-fun TransferResponse.toModel(): TransferModel {
+fun TransferResponse.toTransferModel(): TransferModel {
 	return TransferModel(
 			Id, Valor, Data.toCalendar(Constants.SERVER_DATE_FORMAT),
 			Cliente.Id, Cliente.Nome, Cliente.Celular, Cliente.FotoUrl

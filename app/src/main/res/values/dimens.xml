@@ -9,6 +9,7 @@
 	<dimen name="avatar_stroke_width">2dp</dimen>
 	<dimen name="home_avatar_stroke_width">4dp</dimen>
 	<dimen name="home_avatar_size">150dp</dimen>
+	<dimen name="dialog_avatar_size">80dp</dimen>
 
 	<dimen name="chart_dot_size">8dp</dimen>
 	<dimen name="chart_avatar_size">40dp</dimen>

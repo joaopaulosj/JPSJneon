@@ -22,10 +22,10 @@
 		android:layout_margin="@dimen/avatar_stroke_width"
 		android:background="@drawable/bg_circle_blue"
 		android:gravity="center"
+		android:padding="@dimen/margin_small"
 		android:textColor="@color/colorAccent"
 		android:textStyle="bold"
-		android:padding="@dimen/margin_small"
-		android:visibility="visible"
+		android:visibility="gone"
 		app:autoSizeTextType="uniform"
 		app:backgroundTint="@color/colorLightBlueChart"
 		tools:text="JP" />
