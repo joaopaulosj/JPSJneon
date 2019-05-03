@@ -42,6 +42,7 @@ class SendMoneyDialog(context: Context, private val contact: ContactModel) : App
 
     private fun setListeners() {
         dialogSendMoneyBtn.setOnClickListener { sendMoney() }
+        dialogSendMoneyCloseBtn.setOnClickListener { dismiss() }
         dialogSendMoneyEt.addTextChangedListener(
             CurrencyMask.insert(Locale("pt", "BR"), dialogSendMoneyEt, true)
         )

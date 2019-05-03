@@ -23,6 +23,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
+        <ImageView
+                android:id="@+id/dialogSendMoneyCloseBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="@dimen/margin_base"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close"/>
+
         <TextView
                 android:id="@+id/dialogSendMoneyNameTv"
                 android:layout_width="0dp"
