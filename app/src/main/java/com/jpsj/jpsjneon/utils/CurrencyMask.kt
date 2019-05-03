@@ -16,7 +16,7 @@ object CurrencyMask {
         return unmask(string).toDouble() / 100
     }
 
-    fun insert(locale: Locale, editText: EditText, displayCurrency: Boolean): TextWatcher {
+    fun insert(editText: EditText, displayCurrency: Boolean): TextWatcher {
         return object : TextWatcher {
             var isUpdating: Boolean = false
             var old = ""
@@ -38,7 +38,7 @@ object CurrencyMask {
 
                     try {
                         val parsed = cleanString.toDouble()
-                        var formated = NumberFormat.getCurrencyInstance(locale).format(parsed / 100)
+                        var formated = NumberFormat.getCurrencyInstance(Locale("pt", "BR")).format(parsed / 100)
 
                         if (!displayCurrency)
                             formated = formated.replace("R$", "R$ ")

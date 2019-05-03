@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="100dp"
-	android:layout_height="100dp"
-	android:background="@drawable/bg_circle_accent">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/bg_circle_accent">
 
-	<ImageView
-		android:id="@+id/avatarIv"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_centerInParent="true"
-		android:layout_margin="@dimen/avatar_stroke_width"
-		tools:srcCompat="@drawable/ic_placeholder_user" />
+    <ImageView
+            android:id="@+id/avatarIv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/avatar_stroke_width"
+            tools:srcCompat="@drawable/ic_placeholder_user"/>
 
-	<TextView
-		android:id="@+id/avatarTv"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_centerInParent="true"
-		android:layout_margin="@dimen/avatar_stroke_width"
-		android:background="@drawable/bg_circle_blue"
-		android:gravity="center"
-		android:padding="@dimen/margin_small"
-		android:textColor="@color/colorAccent"
-		android:textStyle="bold"
-		android:visibility="gone"
-		app:autoSizeTextType="uniform"
-		app:backgroundTint="@color/colorLightBlueChart"
-		tools:text="JP" />
+    <TextView
+            android:id="@+id/avatarTv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/avatar_stroke_width"
+            android:background="@drawable/bg_circle_blue"
+            android:gravity="center"
+            android:padding="@dimen/margin_small"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:autoSizeTextType="uniform"
+            app:backgroundTint="@color/colorLightBlueChart"
+            tools:text="JP"/>
 
 </RelativeLayout>

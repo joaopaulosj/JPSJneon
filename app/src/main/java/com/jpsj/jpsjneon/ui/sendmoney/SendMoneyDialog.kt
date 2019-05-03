@@ -12,11 +12,11 @@ import com.jpsj.jpsjneon.base.AppInjector
 import com.jpsj.jpsjneon.data.models.ContactModel
 import com.jpsj.jpsjneon.utils.CurrencyMask
 import com.jpsj.jpsjneon.utils.extensions.loadCircleImage
+import com.jpsj.jpsjneon.utils.extensions.setVisible
 import com.jpsj.jpsjneon.utils.extensions.singleSubscribe
 import kotlinx.android.synthetic.main.dialog_send_money.*
 import kotlinx.android.synthetic.main.partial_avatar.view.*
 import org.jetbrains.anko.longToast
-import java.util.*
 
 class SendMoneyDialog(context: Context, private val contact: ContactModel) : AppCompatDialog(context) {
 
@@ -36,15 +36,20 @@ class SendMoneyDialog(context: Context, private val contact: ContactModel) : App
     private fun displayContact() {
         dialogSendMoneyNameTv.text = contact.name
         dialogSendMoneyPhoneTv.text = contact.phone
-        dialogSendMoneyIv.avatarIv.loadCircleImage(contact.picture)
         dialogSendMoneyEt.setText("0")
+        dialogSendMoneyIv.avatarTv.text = contact.initials
+        if (contact.picture != null) {
+            dialogSendMoneyIv.avatarIv.setVisible(true)
+            dialogSendMoneyIv.avatarTv.setVisible(false)
+            dialogSendMoneyIv.avatarIv.loadCircleImage(contact.picture)
+        }
     }
 
     private fun setListeners() {
         dialogSendMoneyBtn.setOnClickListener { sendMoney() }
         dialogSendMoneyCloseBtn.setOnClickListener { dismiss() }
         dialogSendMoneyEt.addTextChangedListener(
-            CurrencyMask.insert(Locale("pt", "BR"), dialogSendMoneyEt, true)
+            CurrencyMask.insert(dialogSendMoneyEt, true)
         )
     }
 

@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jpsj.jpsjneon.R
 import com.jpsj.jpsjneon.data.models.ChartModel
-import com.jpsj.jpsjneon.utils.extensions.*
+import com.jpsj.jpsjneon.utils.extensions.animateFromZero
+import com.jpsj.jpsjneon.utils.extensions.loadCircleImage
+import com.jpsj.jpsjneon.utils.extensions.setVisible
 import kotlinx.android.synthetic.main.item_chart.view.*
 import kotlinx.android.synthetic.main.partial_avatar.view.*
 
@@ -14,12 +16,12 @@ class HistoryChartAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: List<ChartModel> = emptyList()
     private var greatestAmount: Double = 1.0
-    private val animatedItems = mutableListOf<Int>()
+    private var animated = false
 
     fun setItems(items: List<ChartModel>, greatestAmount: Double) {
         this.items = items
         this.greatestAmount = greatestAmount
-        animatedItems.clear()
+        animated = false
         notifyDataSetChanged()
     }
 
@@ -46,7 +48,7 @@ class HistoryChartAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 avatarTv.text = item.initials
 
 
-                if (animatedItems.contains(adapterPosition)) {
+                if (animated) {
                     itemChartGdl.setGuidelinePercent(item.chartPercent(greatestAmount))
                 } else {
                     val percent = item.totalPercent(greatestAmount)
@@ -55,7 +57,7 @@ class HistoryChartAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                         itemChartGdl.setGuidelinePercent(1 - it) //this 1 is because of the constraint layout orientation
 
                         if ((it * 100).toInt() == percent.toInt())
-                            animatedItems.add(adapterPosition) //set as animated to not repeat animation
+                            animated = true //set as animated to not repeat animation when recycled
                     }
                 }
             }
