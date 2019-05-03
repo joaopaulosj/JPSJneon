@@ -1,4 +1,4 @@
-package com.jpsj.jpsjneon.sendmoney
+package com.jpsj.jpsjneon.ui.sendmoney
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,7 +27,7 @@ class SendMoneyViewModel(private val repository: AppRepository) : ViewModel() {
     }
 }
 
-class SendMoneyViewModelFactory(val repository: AppRepository) : ViewModelProvider.NewInstanceFactory() {
+class SendMoneyViewModelFactory(private val repository: AppRepository) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return SendMoneyViewModel(repository) as T
     }

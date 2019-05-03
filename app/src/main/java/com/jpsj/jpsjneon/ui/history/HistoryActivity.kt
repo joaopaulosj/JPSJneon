@@ -1,4 +1,4 @@
-package com.jpsj.jpsjneon.history
+package com.jpsj.jpsjneon.ui.history
 
 import android.content.Context
 import android.os.Bundle

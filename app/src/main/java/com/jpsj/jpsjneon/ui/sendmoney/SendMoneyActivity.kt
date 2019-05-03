@@ -1,4 +1,4 @@
-package com.jpsj.jpsjneon.sendmoney
+package com.jpsj.jpsjneon.ui.sendmoney
 
 import android.content.Context
 import android.os.Bundle
@@ -22,7 +22,8 @@ class SendMoneyActivity : BaseActivity() {
     }
 
     private val contactsAdapter by lazy {
-        val adapter = ContactAdapter(object : ContactAdapter.OnItemClickListener {
+        val adapter = ContactAdapter(object :
+            ContactAdapter.OnItemClickListener {
             override fun onItemClicked(contact: ContactModel) {
                 openContactDialog(contact)
             }

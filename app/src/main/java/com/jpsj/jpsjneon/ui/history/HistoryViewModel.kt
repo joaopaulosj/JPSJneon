@@ -1,4 +1,4 @@
-package com.jpsj.jpsjneon.history
+package com.jpsj.jpsjneon.ui.history
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,6 +20,7 @@ class HistoryViewModel(private val repository: AppRepository) : ViewModel() {
         isLoading.value = true
         repository.getTransfers()
             .singleSubscribe(onSuccess = {
+                transfersList.value = it.sortedByDescending { it.date }
                 loadChart(it)
             }, onError = {
                 errorEvents.value = it.message
@@ -28,7 +29,6 @@ class HistoryViewModel(private val repository: AppRepository) : ViewModel() {
     }
 
     private fun loadChart(transfers: List<TransferModel>) {
-        transfersList.value = transfers
         val groups = transfers.groupBy { it.clientId }
         val chartItems = groups.map {
             ChartModel(

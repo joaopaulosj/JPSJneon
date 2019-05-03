@@ -1,4 +1,4 @@
-package com.jpsj.jpsjneon.sendmoney
+package com.jpsj.jpsjneon.ui.sendmoney
 
 import android.content.Context
 import android.graphics.Color

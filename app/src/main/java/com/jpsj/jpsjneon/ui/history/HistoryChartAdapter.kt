@@ -1,4 +1,4 @@
-package com.jpsj.jpsjneon.history
+package com.jpsj.jpsjneon.ui.history
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,10 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jpsj.jpsjneon.R
 import com.jpsj.jpsjneon.data.models.ChartModel
-import com.jpsj.jpsjneon.utils.extensions.animateFromZero
-import com.jpsj.jpsjneon.utils.extensions.formatToDecimal
-import com.jpsj.jpsjneon.utils.extensions.loadCircleImage
-import com.jpsj.jpsjneon.utils.extensions.setVisible
+import com.jpsj.jpsjneon.utils.extensions.*
 import kotlinx.android.synthetic.main.item_chart.view.*
 import kotlinx.android.synthetic.main.partial_avatar.view.*
 
@@ -42,17 +39,17 @@ class HistoryChartAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: ChartModel) {
             itemView.apply {
-                itemChartAmountTv.text = item.amount.formatToDecimal()
-                avatarIv.setVisible(item.clientPic != null, true)
+                itemChartAmountTv.text = item.amountDisplay
+                avatarIv.setVisible(item.clientPic != null)
                 avatarIv.loadCircleImage(item.clientPic)
                 avatarTv.setVisible(item.clientPic == null)
                 avatarTv.text = item.initials
 
-                val percent = item.chartPercent(greatestAmount)
 
                 if (animatedItems.contains(adapterPosition)) {
-                    itemChartGdl.setGuidelinePercent(1 - percent) //this 1 is because of the constraint layout orientation
+                    itemChartGdl.setGuidelinePercent(item.chartPercent(greatestAmount))
                 } else {
+                    val percent = item.totalPercent(greatestAmount)
                     //Animate the chart bar from zero to the amount percent
                     percent.animateFromZero {
                         itemChartGdl.setGuidelinePercent(1 - it) //this 1 is because of the constraint layout orientation

@@ -4,14 +4,16 @@ import com.jpsj.jpsjneon.data.datasources.AppRemoteDataSource
 import com.jpsj.jpsjneon.data.datasources.AppRemoteDataSourceImpl
 import com.jpsj.jpsjneon.data.repositories.AppRepository
 import com.jpsj.jpsjneon.data.repositories.AppRepositoryImpl
-import com.jpsj.jpsjneon.history.HistoryViewModelFactory
-import com.jpsj.jpsjneon.sendmoney.SendMoneyViewModelFactory
+import com.jpsj.jpsjneon.ui.history.HistoryViewModelFactory
+import com.jpsj.jpsjneon.ui.sendmoney.SendMoneyViewModelFactory
 
 object AppInjector {
 	
 	//ViewModels
-	fun getHistoryViewModelFactory(): HistoryViewModelFactory = HistoryViewModelFactory(getAppRepository())
-	fun getSendMoneyViewModelFactory(): SendMoneyViewModelFactory = SendMoneyViewModelFactory(getAppRepository())
+	fun getHistoryViewModelFactory(): HistoryViewModelFactory =
+		HistoryViewModelFactory(getAppRepository())
+	fun getSendMoneyViewModelFactory(): SendMoneyViewModelFactory =
+		SendMoneyViewModelFactory(getAppRepository())
 
 	//Repositories
 	fun getAppRepository(): AppRepository = AppRepositoryImpl(getAppDatasource())

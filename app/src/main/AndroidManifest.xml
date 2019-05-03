@@ -14,14 +14,14 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name=".sendmoney.SendMoneyActivity"
-                android:parentActivityName=".home.MainActivity"
+                android:name=".ui.sendmoney.SendMoneyActivity"
+                android:parentActivityName=".ui.home.MainActivity"
                 android:screenOrientation="portrait"/>
         <activity
-                android:name=".history.HistoryActivity"
-                android:parentActivityName=".home.MainActivity"/>
+                android:name=".ui.history.HistoryActivity"
+                android:parentActivityName=".ui.home.MainActivity"/>
         <activity
-                android:name=".home.MainActivity"
+                android:name=".ui.home.MainActivity"
                 android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

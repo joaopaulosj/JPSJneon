@@ -1,10 +1,10 @@
-package com.jpsj.jpsjneon.home
+package com.jpsj.jpsjneon.ui.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.jpsj.jpsjneon.R
-import com.jpsj.jpsjneon.history.createHistoryIntent
-import com.jpsj.jpsjneon.sendmoney.createSendMoneyIntent
+import com.jpsj.jpsjneon.ui.history.createHistoryIntent
+import com.jpsj.jpsjneon.ui.sendmoney.createSendMoneyIntent
 import com.jpsj.jpsjneon.utils.extensions.loadCircleImage
 import com.jpsj.jpsjneon.utils.extensions.startActivitySlideTransition
 import kotlinx.android.synthetic.main.activity_main.*

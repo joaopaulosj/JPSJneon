@@ -1,7 +1,6 @@
 package com.jpsj.jpsjneon.utils.extensions
 
 import android.animation.ValueAnimator
-import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
 
@@ -14,13 +13,13 @@ fun Float.animateFromZero(duration: Long = 1500, callback: (value: Float) -> Uni
     valueAnimator.start()
 }
 
-fun Double.formatToCurrency(locale: Locale = Locale("pt", "BR")): String {
+fun Double.formatToCurrency(showCurrency: Boolean = true, locale: Locale = Locale("pt", "BR")): String {
     val currencyFormatter = NumberFormat.getCurrencyInstance(locale)
-    return currencyFormatter.format(this)
-}
 
-fun Double.formatToDecimal(): String {
-    val df = DecimalFormat()
-    df.minimumFractionDigits = 2
-    return df.format(this)
+    val str = currencyFormatter.format(this)
+    return if (showCurrency)
+        str
+    else
+        str.replace(Regex("-?[^\\d,.]"), "")
+
 }
