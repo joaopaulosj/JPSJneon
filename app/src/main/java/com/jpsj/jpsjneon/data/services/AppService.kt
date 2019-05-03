@@ -8,13 +8,15 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface AppService {
-	
-	@GET("GetTransfers")
-	fun getTransfers(): Single<List<TransferResponse>>
-	
-	@FormUrlEncoded
-	@POST("SendMoney")
-	fun sendMoney(@Field("clientId") contactId: Long,
-	              @Field("amount") amount: Double): Single<Any>
-	
+
+    @GET("GetTransfers")
+    fun getTransfers(): Single<List<TransferResponse>>
+
+    @FormUrlEncoded
+    @POST("SendMoney")
+    fun sendMoney(
+        @Field("clientId") contactId: Long,
+        @Field("amount") amount: Double
+    ): Single<Any>
+
 }

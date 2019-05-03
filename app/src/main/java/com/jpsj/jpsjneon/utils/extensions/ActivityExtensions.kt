@@ -9,8 +9,10 @@ fun Activity.startActivitySlideTransition(intent: Intent, requestCode: Int? = nu
     startActivityTransition(intent, R.anim.anim_close_scale, R.anim.slide_in_left, 1, requestCode)
 }
 
-fun Activity.startActivityTransition(intent: Intent, idAnimationOut: Int,
-                                     idAnimationIn: Int, delay: Long, requestCode: Int? = null) {
+fun Activity.startActivityTransition(
+    intent: Intent, idAnimationOut: Int,
+    idAnimationIn: Int, delay: Long, requestCode: Int? = null
+) {
     if (requestCode == null) {
         Handler().postDelayed({
             this.startActivity(intent)

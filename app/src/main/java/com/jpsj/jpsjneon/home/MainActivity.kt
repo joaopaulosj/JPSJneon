@@ -1,6 +1,5 @@
 package com.jpsj.jpsjneon.home
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.jpsj.jpsjneon.R
@@ -10,7 +9,6 @@ import com.jpsj.jpsjneon.utils.extensions.loadCircleImage
 import com.jpsj.jpsjneon.utils.extensions.startActivitySlideTransition
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.partial_home_avatar.*
-import org.jetbrains.anko.intentFor
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,5 +32,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
-fun Context.createHomeIntent() = intentFor<MainActivity>()

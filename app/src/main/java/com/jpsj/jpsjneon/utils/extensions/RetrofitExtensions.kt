@@ -9,19 +9,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 fun <S> createService(serviceClass: Class<S>, url: String): S {
 
-	val httpClient = OkHttpClient.Builder().apply {
-		if (BuildConfig.DEBUG) {
-			addInterceptor(HttpLoggingInterceptor().apply {
-				level = HttpLoggingInterceptor.Level.BODY
-			})
-		}
-	}
+    val httpClient = OkHttpClient.Builder().apply {
+        if (BuildConfig.DEBUG) {
+            addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+        }
+    }
 
-	val retrofit = Retrofit.Builder()
-		.baseUrl(url)
-		.client(httpClient.build())
-		.addConverterFactory(GsonConverterFactory.create())
-		.addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-	
-	return retrofit.build().create(serviceClass)
+    val retrofit = Retrofit.Builder()
+        .baseUrl(url)
+        .client(httpClient.build())
+        .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+
+    return retrofit.build().create(serviceClass)
 }
